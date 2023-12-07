@@ -141,6 +141,7 @@ func main() {
 	http.Handle("/search", noCacheMiddleware(adminAuthentication(http.HandlerFunc(search))))
 	http.HandleFunc("/adminLogout", adminLogout)
 
+	fmt.Println("function started: ")
 	err := http.ListenAndServe(":8080", nil) //uses default serve mux in case of nil handler
 	if err != nil {
 		fmt.Println("error:", err)
